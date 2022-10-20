@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.http import HttpResponse, JsonResponse
-from django.urls import path
-def home(request):
-    return JsonResponse({"OK":True})
+from django.urls import path, include
+from smartphone.views import (
+    home
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',home)
+    path('',home, name='home')
 ]
