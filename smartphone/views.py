@@ -51,3 +51,19 @@ def add_product(request):
         return JsonResponse({'product': product_json})
 
     return JsonResponse({'product': {}})
+
+def get_products(request):
+    """
+    Get all products
+    args:
+        request: the request object
+    return:
+        JsonResponse: the list of products
+    """
+    products = Product.objects.all()
+    products_json = []
+    for product in products:
+        products_json.append(convert_to_json(product))
+
+
+    return JsonResponse({'products': products_json})
