@@ -5,7 +5,12 @@ from django.http import JsonResponse
 from .models import Product
 # Create your views here.
 def home(request):
-    return JsonResponse({"PAGE":"HOME"})
+    context = {
+        'by_company':'https://djangoadmin.pythonanywhere.com/products/company/Apple',
+        'by_RAM':'https://djangoadmin.pythonanywhere.com/products/ram/4',
+        'by_memory':'https://djangoadmin.pythonanywhere.com/products/memory/32'
+    }
+    return render(request, 'index.html', context=context)
 def convert_to_json(product):
     """
     Convert a product to a JSON object
@@ -133,4 +138,4 @@ def get_products_by_memory(request, memory):
             products_json.append(convert_to_json(product))
     
     return JsonResponse({'products':products_json})
-    
+
