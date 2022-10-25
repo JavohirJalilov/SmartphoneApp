@@ -133,3 +133,4 @@ def get_products_by_memory(request, memory):
             products_json.append(convert_to_json(product))
     
     return JsonResponse({'products':products_json})
+    
