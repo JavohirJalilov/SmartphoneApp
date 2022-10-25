@@ -24,6 +24,8 @@ from smartphone.views import (
     add_product,
     delete_product,
     get_products_by_company,
+    get_products_by_RAM,
+    get_products_by_memory
 
 )
 
@@ -33,5 +35,7 @@ urlpatterns = [
     path('products/', get_products),
     path('add_product/', add_product),
     path('delete_product/<int:id>',delete_product),
-    path('products/company/<str:company>', get_products_by_company)
+    path('products/company/<str:company>', get_products_by_company),
+    path('products/ram/<str:RAM>', get_products_by_RAM),
+    path('products/memory/<str:memory>', get_products_by_memory)
 ]
