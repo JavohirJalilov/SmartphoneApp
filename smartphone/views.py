@@ -67,3 +67,34 @@ def get_products(request):
 
 
     return JsonResponse({'products': products_json})
+
+
+def delete_product(request, id):
+    """
+    Delete a product
+    args:
+        request: the request object
+        id: the id of the product
+    return:
+        JsonResponse: the product
+    """
+    if request.method == 'GET':
+        product = Product.objects.get(id=id)
+        product.delete()
+    return JsonResponse({'product': {}})
+
+def get_products_by_company(request, company):
+    """
+    Get all products by company
+    args:
+        request: the request object
+        company: the company of the product
+    return:
+        JsonResponse: the list of products
+    """
+    products_json = []
+    if request.method == 'GET':
+        products = Product.objects.filter(company=company)
+        for product in products:
+            products_json.append(convert_to_json(product))
+    return JsonResponse({"products":products_json})

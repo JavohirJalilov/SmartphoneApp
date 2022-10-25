@@ -18,9 +18,13 @@ from django.contrib import admin
 from django.http import HttpResponse, JsonResponse
 from django.urls import path, include
 from smartphone.views import (
+    delete_product,
     home,
     get_products,
-    add_product
+    add_product,
+    delete_product,
+    get_products_by_company,
+
 )
 
 urlpatterns = [
@@ -28,4 +32,6 @@ urlpatterns = [
     path('',home, name='home'),
     path('products/', get_products),
     path('add_product/', add_product),
+    path('delete_product/<int:id>',delete_product),
+    path('products/company/<str:company>', get_products_by_company)
 ]
