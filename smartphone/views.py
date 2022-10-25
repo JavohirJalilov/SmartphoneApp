@@ -6,6 +6,7 @@ from .models import Product
 # Create your views here.
 def home(request):
     context = {
+        'all_products':'http://djangoadmin.pythonanywhere.com/products',
         'by_company':'https://djangoadmin.pythonanywhere.com/products/company/Apple',
         'by_RAM':'https://djangoadmin.pythonanywhere.com/products/ram/4',
         'by_memory':'https://djangoadmin.pythonanywhere.com/products/memory/32'
