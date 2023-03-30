@@ -6,10 +6,10 @@ from .models import Product
 # Create your views here.
 def home(request):
     context = {
-        'all_products':'http://djangoadmin.pythonanywhere.com/products',
-        'by_company':'https://djangoadmin.pythonanywhere.com/products/company/Apple',
-        'by_RAM':'https://djangoadmin.pythonanywhere.com/products/ram/4',
-        'by_memory':'https://djangoadmin.pythonanywhere.com/products/memory/32'
+        'all_products':'https://smartphoneshopping.pythonanywhere.com/products',
+        'by_company':'https://smartphoneshopping.pythonanywhere.com/company/Apple',
+        'by_RAM':'https://smartphoneshopping.pythonanywhere.com/products/ram/4',
+        'by_memory':'https://smartphoneshopping.pythonanywhere.com/products/memory/32'
     }
     return render(request, 'index.html', context=context)
 def convert_to_json(product):
