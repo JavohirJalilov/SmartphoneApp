@@ -7,11 +7,12 @@ from .models import Product
 def home(request):
     context = {
         'all_products':'https://smartphoneshopping.pythonanywhere.com/products',
-        'by_company':'https://smartphoneshopping.pythonanywhere.com/company/Apple',
+        'by_company':'https://smartphoneshopping.pythonanywhere.com/products/company/Apple',
         'by_RAM':'https://smartphoneshopping.pythonanywhere.com/products/ram/4',
         'by_memory':'https://smartphoneshopping.pythonanywhere.com/products/memory/32'
     }
     return render(request, 'index.html', context=context)
+
 def convert_to_json(product):
     """
     Convert a product to a JSON object
